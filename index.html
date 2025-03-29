@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe - Your One-Stop Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-shopping-bag me-2"></i>
+                <span>Vibe</span>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Main Navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search Bar -->
+                <form class="search-form mx-auto">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Navigation Links -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-th-large me-1"></i>Categories
+                        </a>
+                        <div class="dropdown-menu category-dropdown">
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Electronics</span>
+                                    <ul>
+                                        <li><a href="#">Smartphones</a></li>
+                                        <li><a href="#">Laptops</a></li>
+                                        <li><a href="#">Tablets</a></li>
+                                        <li><a href="#">Accessories</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category-item">
+                                    <i class="fas fa-tshirt"></i>
+                                    <span>Fashion</span>
+                                    <ul>
+                                        <li><a href="#">Men's Clothing</a></li>
+                                        <li><a href="#">Women's Clothing</a></li>
+                                        <li><a href="#">Kids</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category-item">
+                                    <i class="fas fa-home"></i>
+                                    <span>Home & Living</span>
+                                    <ul>
+                                        <li><a href="#">Furniture</a></li>
+                                        <li><a href="#">Decor</a></li>
+                                        <li><a href="#">Kitchen</a></li>
+                                        <li><a href="#">Garden</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>Books & Media</span>
+                                    <ul>
+                                        <li><a href="#">Books</a></li>
+                                        <li><a href="#">Movies</a></li>
+                                        <li><a href="#">Music</a></li>
+                                        <li><a href="#">Magazines</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category-item">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>Sports</span>
+                                    <ul>
+                                        <li><a href="#">Equipment</a></li>
+                                        <li><a href="#">Clothing</a></li>
+                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#">Nutrition</a></li>
+                                    </ul>
+                                </div>
+                                <div class="category-item">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Special Offers</span>
+                                    <ul>
+                                        <li><a href="#">Deals of the Day</a></li>
+                                        <li><a href="#">Flash Sales</a></li>
+                                        <li><a href="#">Clearance</a></li>
+                                        <li><a href="#">New Arrivals</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#deals">
+                            <i class="fas fa-tag me-1"></i>Deals
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#new">
+                            <i class="fas fa-star me-1"></i>New
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- User Actions -->
+                <div class="user-actions ms-3">
+                    <div class="d-flex align-items-center">
+                        <!-- Cart Button -->
+                        <button class="btn btn-outline-light me-2 position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </button>
+
+                        <!-- User Menu -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-box me-2"></i>Orders</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i>Wishlist</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="cart-items">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            <div class="cart-summary mt-3">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span class="cart-subtotal">$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <strong>Total:</strong>
+                    <strong class="cart-total">$0.00</strong>
+                </div>
+                <button class="btn btn-primary w-100">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Welcome to Vibe</h1>
+            <p>Discover Amazing Products at Great Prices</p>
+            <div class="hero-buttons">
+                <a href="#featured" class="btn btn-primary btn-lg me-3">Shop Now</a>
+                <a href="#categories" class="btn btn-outline-light btn-lg">Explore Categories</a>
+            </div>
+            <div class="hero-features mt-4">
+                <div class="feature-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Free Shipping</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Payment</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-undo"></i>
+                    <span>Easy Returns</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Sliding Banner Section -->
+    <section class="sliding-banner">
+        <div class="container">
+            <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="4"></button>
+                    <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Free Shipping Banner -->
+                    <div class="carousel-item active">
+                        <div class="banner-content">
+                            <i class="fas fa-truck"></i>
+                            <h3>Free Shipping</h3>
+                            <p>On orders over $50</p>
+                            <a href="#" class="btn btn-outline-light">Learn More</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                    
+                    <!-- 24/7 Support Banner -->
+                    <div class="carousel-item">
+                        <div class="banner-content">
+                            <i class="fas fa-headset"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Always here to help you</p>
+                            <a href="#" class="btn btn-outline-light">Contact Us</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                    
+                    <!-- Secure Payment Banner -->
+                    <div class="carousel-item">
+                        <div class="banner-content">
+                            <i class="fas fa-lock"></i>
+                            <h3>Secure Payment</h3>
+                            <p>100% secure checkout</p>
+                            <a href="#" class="btn btn-outline-light">View Methods</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                    
+                    <!-- Easy Returns Banner -->
+                    <div class="carousel-item">
+                        <div class="banner-content">
+                            <i class="fas fa-undo"></i>
+                            <h3>Easy Returns</h3>
+                            <p>30-day return policy</p>
+                            <a href="#" class="btn btn-outline-light">Return Policy</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                    
+                    <!-- Loyalty Program Banner -->
+                    <div class="carousel-item">
+                        <div class="banner-content">
+                            <i class="fas fa-crown"></i>
+                            <h3>Loyalty Program</h3>
+                            <p>Earn points on every purchase</p>
+                            <a href="#" class="btn btn-outline-light">Join Now</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                    
+                    <!-- Flash Sale Banner -->
+                    <div class="carousel-item">
+                        <div class="banner-content">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Flash Sale</h3>
+                            <p>Up to 70% off on selected items</p>
+                            <a href="#" class="btn btn-outline-light">Shop Now</a>
+                        </div>
+                        <div class="banner-overlay"></div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertisement Banners -->
+    <section class="ad-banners py-4">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Summer Sale Banner -->
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="ad-banner">
+                        <div class="ad-content">
+                            <span class="ad-tag">Summer Sale</span>
+                            <h3>Up to 50% Off</h3>
+                            <p>On all summer collection</p>
+                            <a href="#" class="btn btn-light">Shop Now</a>
+                        </div>
+                        <div class="ad-overlay"></div>
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Summer Sale">
+                    </div>
+                </div>
+                
+                <!-- New Arrivals Banner -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ad-banner">
+                        <div class="ad-content">
+                            <span class="ad-tag">New Arrivals</span>
+                            <h3>Latest Trends</h3>
+                            <p>Check out our new collection</p>
+                            <a href="#" class="btn btn-light">Explore</a>
+                        </div>
+                        <div class="ad-overlay"></div>
+                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="New Arrivals">
+                    </div>
+                </div>
+                
+                <!-- Special Offer Banner -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ad-banner">
+                        <div class="ad-content">
+                            <span class="ad-tag">Special Offer</span>
+                            <h3>Free Shipping</h3>
+                            <p>On orders over $100</p>
+                            <a href="#" class="btn btn-light">Learn More</a>
+                        </div>
+                        <div class="ad-overlay"></div>
+                        <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Special Offer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" class="featured-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Featured Products</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="featured-card">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Premium Headphones">
+                            <div class="featured-overlay">
+                                <button class="btn btn-light">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="featured-details">
+                            <h4>Sony WH-1000XM4 Wireless Headphones</h4>
+                            <div class="price-box">
+                                <p class="price">349.99</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(128)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-card">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Smart Watch">
+                            <div class="featured-overlay">
+                                <button class="btn btn-light">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="featured-details">
+                            <h4>Apple Watch Series 7 GPS</h4>
+                            <div class="price-box">
+                                <p class="price">399.99</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(256)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="featured-card">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Nike Shoes">
+                            <div class="featured-overlay">
+                                <button class="btn btn-light">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="featured-details">
+                            <h4>Nike Air Max 270 React</h4>
+                            <div class="price-box">
+                                <p class="price">150.00</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(189)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="featured-card">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="MacBook Pro">
+                            <div class="featured-overlay">
+                                <button class="btn btn-light">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="featured-details">
+                            <h4>MacBook Pro M1 13-inch</h4>
+                            <div class="price-box">
+                                <p class="price">1299.99</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(312)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Shop by Category</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Electronics">
+                        <div class="category-overlay">
+                            <h3>Electronics</h3>
+                            <p>Latest Gadgets & Tech</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Fashion">
+                        <div class="category-overlay">
+                            <h3>Fashion</h3>
+                            <p>Trendy Styles & Accessories</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Home">
+                        <div class="category-overlay">
+                            <h3>Home & Living</h3>
+                            <p>Modern Comfort & Style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Filters</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Price Range -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Price</h6>
+                            <div class="price-ranges">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="0-50" id="price1">
+                                    <label class="form-check-label" for="price1">Under $50</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="50-100" id="price2">
+                                    <label class="form-check-label" for="price2">$50 - $100</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="100-200" id="price3">
+                                    <label class="form-check-label" for="price3">$100 - $200</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="200-500" id="price4">
+                                    <label class="form-check-label" for="price4">$200 - $500</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="500+" id="price5">
+                                    <label class="form-check-label" for="price5">$500+</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Discount -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Discount</h6>
+                            <div class="discount-ranges">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="10" id="discount1">
+                                    <label class="form-check-label" for="discount1">10% or more</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="20" id="discount2">
+                                    <label class="form-check-label" for="discount2">20% or more</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="30" id="discount3">
+                                    <label class="form-check-label" for="discount3">30% or more</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="40" id="discount4">
+                                    <label class="form-check-label" for="discount4">40% or more</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="50" id="discount5">
+                                    <label class="form-check-label" for="discount5">50% or more</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Rating</h6>
+                            <div class="rating-filters">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="4" id="rating4">
+                                    <label class="form-check-label" for="rating4">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        & above
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="3" id="rating3">
+                                    <label class="form-check-label" for="rating3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        & above
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="2" id="rating2">
+                                    <label class="form-check-label" for="rating2">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        & above
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Availability</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="in-stock" id="inStock">
+                                <label class="form-check-label" for="inStock">
+                                    <i class="fas fa-check-circle text-success me-1"></i>In Stock
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="out-of-stock" id="outOfStock">
+                                <label class="form-check-label" for="outOfStock">
+                                    <i class="fas fa-times-circle text-danger me-1"></i>Out of Stock
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Brand</h6>
+                            <div class="brand-filters">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="apple" id="apple">
+                                    <label class="form-check-label" for="apple">Apple</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="samsung" id="samsung">
+                                    <label class="form-check-label" for="samsung">Samsung</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="sony" id="sony">
+                                    <label class="form-check-label" for="sony">Sony</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nike" id="nike">
+                                    <label class="form-check-label" for="nike">Nike</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="adidas" id="adidas">
+                                    <label class="form-check-label" for="adidas">Adidas</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Clear All Button -->
+                        <button class="btn btn-outline-secondary w-100 mt-3" id="clearFilters">
+                            <i class="fas fa-times me-1"></i>Clear All
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Products</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+                            Sort By
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-sort="price-asc">Price: Low to High</a></li>
+                            <li><a class="dropdown-item" href="#" data-sort="price-desc">Price: High to Low</a></li>
+                            <li><a class="dropdown-item" href="#" data-sort="rating">Rating</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" id="productGrid">
+                    <!-- Electronics -->
+                    <div class="col-md-4 mb-4" data-category="electronics" data-brand="apple" data-price="999.99" data-rating="4.5" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="MacBook Pro">
+                            <div class="product-details">
+                                <h5 class="product-title">MacBook Pro M1</h5>
+                                <div class="price-box">
+                                    <p class="price">999.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(128)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4" data-category="electronics" data-brand="samsung" data-price="799.99" data-rating="4.8" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Samsung Galaxy S21">
+                            <div class="product-details">
+                                <h5 class="product-title">Samsung Galaxy S21</h5>
+                                <div class="price-box">
+                                    <p class="price">799.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(256)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fashion -->
+                    <div class="col-md-4 mb-4" data-category="fashion" data-brand="nike" data-price="129.99" data-rating="4.3" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Nike Air Max">
+                            <div class="product-details">
+                                <h5 class="product-title">Nike Air Max 270</h5>
+                                <div class="price-box">
+                                    <p class="price">129.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(189)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4" data-category="fashion" data-brand="adidas" data-price="89.99" data-rating="4.2" data-stock="out-of-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Adidas Ultra Boost">
+                            <div class="product-details">
+                                <h5 class="product-title">Adidas Ultra Boost</h5>
+                                <div class="price-box">
+                                    <p class="price">89.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(145)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Home & Living -->
+                    <div class="col-md-4 mb-4" data-category="home" data-brand="sony" data-price="299.99" data-rating="4.6" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Sony WH-1000XM4">
+                            <div class="product-details">
+                                <h5 class="product-title">Sony WH-1000XM4</h5>
+                                <div class="price-box">
+                                    <p class="price">299.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(312)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more products here -->
+                    <div class="col-md-4 mb-4" data-category="electronics" data-brand="apple" data-price="399.99" data-rating="4.7" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Apple Watch">
+                            <div class="product-details">
+                                <h5 class="product-title">Apple Watch Series 7</h5>
+                                <div class="price-box">
+                                    <p class="price">399.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(278)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4" data-category="fashion" data-brand="nike" data-price="79.99" data-rating="4.1" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Nike T-Shirt">
+                            <div class="product-details">
+                                <h5 class="product-title">Nike Sport T-Shirt</h5>
+                                <div class="price-box">
+                                    <p class="price">79.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(92)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4" data-category="home" data-brand="sony" data-price="199.99" data-rating="4.4" data-stock="in-stock">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" class="product-image" alt="Sony PlayStation">
+                            <div class="product-details">
+                                <h5 class="product-title">Sony PlayStation 5</h5>
+                                <div class="price-box">
+                                    <p class="price">199.99</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(167)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Product details will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get the latest updates on new products and upcoming sales</p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Vibe</h5>
+                    <p>Your one-stop destination for all your shopping needs.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#featured">Featured</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#deals">Deals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@vibe.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
